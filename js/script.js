@@ -1,9 +1,13 @@
-const myCarouselElement = document.querySelector('#myCarousel');
-const prevArrow = document.querySelector('.carousel-control-prev');
+var controller = new ScrollMagic.Controller();
 
-const carousel = new bootstrap.Carousel(myCarouselElement, {
-  interval: 2000,
-  touch: false,
-  prevArrow: '<button type="button" class="slick-prev"><img src="../../img/icons/arrow_left.svg"></button>',
-  nextArrow: '<button type="button" class="slick-next"><img src="img/icons/arr_2.svg"></button>'
-});
+new ScrollMagic.Scene({
+  triggerElement: "#trigger1",
+  triggerHook: 0.9, // show, when scrolled 10% into view
+  duration: "120%", // hide 10% before exiting view (80% + 10% from bottom)
+  offset: 50 // move trigger to center of element
+})
+.setClassToggle("#reveal1", "visible") // add class to reveal
+// .addIndicators() // add indicators (requires plugin)
+.addTo(controller);
+
+new WOW().init();
